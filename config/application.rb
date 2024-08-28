@@ -40,8 +40,8 @@ module SlackClone
     config.generators.system_tests = nil
 
     config.generators do |g|
-      g.test_framework :test_unit, fixture: false
-      g.fixture_replacement :factory_bot, dir: 'test/factories'
+      g.test_framework :rspec
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
   end
 end
