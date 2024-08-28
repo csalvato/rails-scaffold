@@ -38,5 +38,10 @@ module SlackClone
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.test_framework :test_unit, fixture: false
+      g.fixture_replacement :factory_bot, dir: 'test/factories'
+    end
   end
 end
