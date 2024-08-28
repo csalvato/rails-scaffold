@@ -1,0 +1,39 @@
+# To display cop info
+# $ bin/rubocop --show-cops
+require:
+  - rubocop-rspec
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.3.4
+  Exclude:
+    - 'bin/**/*'
+    - 'tmp/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*.rb'
+    - 'vendor/**/*'
+    - 'config/environments/*.rb'
+
+Style:
+  Enabled: false
+
+Layout/LineLength:
+  Description: 'Limit lines to 120 characters.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#80-character-limits'
+  Enabled: true
+  Max: 120
+
+Metrics/BlockLength:
+  IgnoredMethods:
+    ['describe', 'context', 'fdescribe', 'fcontext', 'shared_examples']
+  Exclude:
+    - 'spec/factories/**/*'
+    - 'spec/spec_helper.rb'
+
+Metrics/AbcSize:
+  Max: 20
+
+RSpec/NestedGroups:
+  Max: 4
